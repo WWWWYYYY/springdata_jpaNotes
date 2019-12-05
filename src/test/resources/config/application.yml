@@ -19,17 +19,25 @@ spring:
         name: springdata_jpaNotes
     cache:
         type: simple
+#    datasource:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        url: jdbc:h2:mem:springdata_jpaNotes;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#        name:
+#        username:
+#        password:
+#        hikari:
+#            auto-commit: false
+
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:springdata_jpaNotes;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-        name:
-        username:
+        url: jdbc:mysql://localhost:3306/app?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
         password:
         hikari:
             auto-commit: false
     jpa:
-        database-platform: io.github.jhipster.domain.util.FixedH2Dialect
-        database: H2
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        database: mysql
         open-in-view: false
         show-sql: false
         hibernate:
